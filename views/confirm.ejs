@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="png" href="images/icon/favicon.png">
+
+    <title>Confirm</title>
+</head>
+<body>
+    <% var message="This account doesn't exist" %>
+    <% var baction="/login" %>
+    <% var bmsg="Go back to REGISTER !" %>
+    <% if (res1.length!=0) { %>
+        <% res1.forEach(r=>{ %>
+
+            <% if(r.email == res2[res2.length-1].loginemail && r.password == res2[res2.length-1].loginpassword ) { %>
+
+                <% message = "You are logged in!" %>
+                <% baction = "/home" %>
+                <% bmsg = "go to home" %>
+
+            <% } %>    
+
+        <% }) %>
+     <% } %>   
+
+
+    <h1><%=message%></h1>
+    <br>
+    <input type="button" onclick="window.location.href='<%=baction%>'" class="Confirm" value="<%=bmsg%>">
+
+</body>
+</html>
